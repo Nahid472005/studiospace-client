@@ -152,7 +152,7 @@ export default function Navbar() {
 
                   <div className="py-1">
                     <Link
-                      href="/my-listings"
+                      href="/dashboard"
                       onClick={() => setUserDropdownOpen(false)}
                       className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition-colors"
                     >
@@ -267,7 +267,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 <Link
-                  href="/my-listings"
+                  href="/dashboard"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
                 >
