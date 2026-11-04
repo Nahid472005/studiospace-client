@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Logo from '@/components/Logo';
 import { Aperture, Instagram, Youtube, Linkedin, Github, Send } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -25,13 +26,8 @@ export default function Footer() {
           
           {/* Col 1 & 2: Branding & Mission */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
-                <Aperture className="w-5 h-5 text-slate-950" />
-              </div>
-              <span className="text-xl font-bold tracking-tight text-white">
-                Studio<span className="text-amber-500">Space</span>
-              </span>
+            <Link href="/">
+              <Logo size="md" />
             </Link>
             <p className="text-sm leading-relaxed text-slate-400 max-w-sm">
               StudioSpace is a high-performance peer-to-peer marketplace designed for creators, filmmakers, photographers, podcasters, and musicians. Discover, inspect dynamic availability, and reserve turnkey production studios with complete booking transparency.

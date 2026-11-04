@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { useTheme } from '@/context/ThemeContext';
+import Logo from '@/components/Logo';
 import {
   Aperture,
   Sun,
@@ -59,18 +60,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         {/* Logo: Aperture spotlight branding */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 flex items-center justify-center shadow-lg shadow-amber-500/25 group-hover:scale-105 transition-transform">
-            <Aperture className="w-6 h-6 text-slate-950 animate-[spin_12s_linear_infinite]" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
-              Studio<span className="text-amber-500">Space</span>
-            </span>
-            <span className="text-[10px] tracking-wider uppercase text-slate-500 dark:text-slate-400 font-medium">
-              Creative Production Marketplace
-            </span>
-          </div>
+        <Link href="/">
+          <Logo size="md" />
         </Link>
 
         {/* Desktop Nav Links */}
