@@ -3,8 +3,8 @@
 > High-performance Next.js single-page application built for filmmakers, photographers, podcasters, and musicians to scout, list, inspect dynamic availability, and reserve turnkey production studios.
 
 - **Live Application URL**: [https://studiospace-marketplace.vercel.app](https://studiospace-marketplace.vercel.app) *(Replace with your deployed production URL)*
-- **Client GitHub Repository**: [StudioSpace Client Repository](https://github.com/nahidul472005/studiospace-client)
-- **Server GitHub Repository**: [StudioSpace Server Repository](https://github.com/nahidul472005/studiospace-server)
+- **Client GitHub Repository**: [StudioSpace Client Repository](https://github.com/Nahid472005/studiospace-client)
+- **Server GitHub Repository**: [StudioSpace Server Repository](https://github.com/Nahid472005/studiospace-server)
 
 ---
 
