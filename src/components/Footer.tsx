@@ -23,8 +23,6 @@ export default function Footer() {
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-800/80 pt-16 pb-12 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
-          
-          {/* Col 1 & 2: Branding & Mission */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/">
               <Logo size="md" />
@@ -33,7 +31,6 @@ export default function Footer() {
               StudioSpace is a high-performance peer-to-peer marketplace designed for creators, filmmakers, photographers, podcasters, and musicians. Discover, inspect dynamic availability, and reserve turnkey production studios with complete booking transparency.
             </p>
             <div className="pt-2 flex items-center gap-3">
-              {/* Modern X Logo (strictly NOT the old bird) */}
               <a
                 href="https://x.com"
                 target="_blank"
@@ -84,7 +81,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 3: Quick Navigation */}
           <div>
             <h4 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
               Explore & Book
@@ -118,7 +114,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Popular Categories */}
           <div>
             <h4 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
               Categories
@@ -152,7 +147,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 5: Newsletter */}
           <div>
             <h4 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
               Creator Dispatch
@@ -185,7 +179,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar: Copyright & Terms */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <p>© {new Date().getFullYear()} StudioSpace Marketplace Inc. All rights reserved.</p>
           <div className="flex items-center gap-6">

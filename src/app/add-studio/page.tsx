@@ -59,7 +59,6 @@ export default function AddStudioPage() {
   const [submitting, setSubmitting] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
 
-  // Private Route Protection: If not logged in, redirect to login
   useEffect(() => {
     if (!loading && !user) {
       toast.info('Please sign in to list a creative workspace.');
@@ -75,18 +74,15 @@ export default function AddStudioPage() {
     }
   };
 
-  // Image Upload helper (ImgBB API or direct URL)
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Optional ImgBB Upload if API key is provided, or convert to high-res preview/base64
     setUploadingImage(true);
     try {
       const formData = new FormData();
       formData.append('image', file);
 
-      // Free ImgBB upload endpoint
       const res = await fetch('https://api.imgbb.com/1/upload?key=6d207e02198a847aa5ad0a9a6f90e482', {
         method: 'POST',
         body: formData,
@@ -97,7 +93,6 @@ export default function AddStudioPage() {
         setImageUrl(data.data.url);
         toast.success('Studio image uploaded to ImgBB successfully!');
       } else {
-        // Fallback: create object URL
         const reader = new FileReader();
         reader.onloadend = () => {
           setImageUrl(reader.result as string);
@@ -161,8 +156,6 @@ export default function AddStudioPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
-      
-      {/* Page Title */}
       <div className="space-y-1">
         <span className="text-xs font-bold uppercase tracking-wider text-amber-500">
           Studio Owner Portal
@@ -175,10 +168,7 @@ export default function AddStudioPage() {
         </p>
       </div>
 
-      {/* Main Form */}
       <form onSubmit={handleSubmit} className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl space-y-8">
-        
-        {/* Read-Only Host Information */}
         <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img
@@ -198,14 +188,12 @@ export default function AddStudioPage() {
           </div>
         </div>
 
-        {/* Studio Basics */}
         <div className="space-y-5">
           <h3 className="text-base font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">
             Workspace Details
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {/* Title */}
             <div className="sm:col-span-2">
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 Studio Title *
@@ -220,7 +208,6 @@ export default function AddStudioPage() {
               />
             </div>
 
-            {/* Category Select */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 Discipline / Category *
@@ -238,7 +225,6 @@ export default function AddStudioPage() {
               </select>
             </div>
 
-            {/* Max Capacity */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 Max Capacity (Crew & Talent)
@@ -254,7 +240,6 @@ export default function AddStudioPage() {
               />
             </div>
 
-            {/* Hourly Rate */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 Hourly Rate (USD $) *
@@ -274,7 +259,6 @@ export default function AddStudioPage() {
               </div>
             </div>
 
-            {/* Security Deposit */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 Security Deposit (USD $)
@@ -293,7 +277,6 @@ export default function AddStudioPage() {
               </div>
             </div>
 
-            {/* Location / Address */}
             <div className="sm:col-span-2">
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">
                 Physical Location / Address *
@@ -314,7 +297,6 @@ export default function AddStudioPage() {
           </div>
         </div>
 
-        {/* Visual Media & Image URL */}
         <div className="space-y-4">
           <h3 className="text-base font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">
             Studio Visuals
@@ -337,7 +319,6 @@ export default function AddStudioPage() {
                 />
               </div>
 
-              {/* Upload to ImgBB Button */}
               <label className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 cursor-pointer transition-colors shrink-0">
                 <UploadCloud className="w-4 h-4 text-amber-500" />
                 <span>{uploadingImage ? 'Uploading...' : 'Upload File'}</span>
@@ -359,7 +340,6 @@ export default function AddStudioPage() {
           </div>
         </div>
 
-        {/* Amenities Selection */}
         <div className="space-y-3">
           <h3 className="text-base font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">
             Amenities & Included Equipment
@@ -394,7 +374,6 @@ export default function AddStudioPage() {
           </div>
         </div>
 
-        {/* Detailed Overview */}
         <div className="space-y-2">
           <h3 className="text-base font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">
             Detailed Studio Overview *
@@ -409,7 +388,6 @@ export default function AddStudioPage() {
           />
         </div>
 
-        {/* Submit Actions */}
         <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end gap-4">
           <button
             type="button"

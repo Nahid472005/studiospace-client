@@ -46,7 +46,6 @@ function LoginContent() {
   const handleGoogleLogin = async () => {
     setLoading(true);
     try {
-      // Examiner-friendly Google OAuth Simulation / Provider
       await googleLogin('creator.google@studiospace.com', 'Google Creator Guest', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80');
       toast.success('Google authentication successful!');
       router.push(redirectUrl);
@@ -71,8 +70,6 @@ function LoginContent() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md space-y-8 bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
-        
-        {/* Brand & Heading */}
         <div className="text-center space-y-2">
           <div className="w-12 h-12 rounded-2xl bg-amber-500 mx-auto flex items-center justify-center shadow-lg shadow-amber-500/25">
             <Aperture className="w-6 h-6 text-slate-950" />
@@ -85,7 +82,6 @@ function LoginContent() {
           </p>
         </div>
 
-        {/* Examiner Quick-Fill Button */}
         <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
           <div className="text-left">
             <span className="text-[11px] font-bold text-amber-500 block">Evaluation Test Account</span>
@@ -100,7 +96,6 @@ function LoginContent() {
           </button>
         </div>
 
-        {/* Error Callout */}
         {errorMessage && (
           <div className="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-center gap-2.5 text-rose-600 dark:text-rose-400 text-xs font-medium">
             <AlertCircle className="w-4 h-4 shrink-0" />
@@ -108,7 +103,6 @@ function LoginContent() {
           </div>
         )}
 
-        {/* Login Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
@@ -163,7 +157,6 @@ function LoginContent() {
           </button>
         </form>
 
-        {/* Divider */}
         <div className="relative flex items-center justify-center">
           <div className="border-t border-slate-200 dark:border-slate-800 w-full" />
           <span className="bg-white dark:bg-slate-900 px-3 text-xs text-slate-400 uppercase tracking-wider font-semibold">
@@ -171,7 +164,6 @@ function LoginContent() {
           </span>
         </div>
 
-        {/* Social Login Button (Google only as specified) */}
         <button
           type="button"
           onClick={handleGoogleLogin}
@@ -199,7 +191,6 @@ function LoginContent() {
           <span>Continue with Google</span>
         </button>
 
-        {/* Footer Link to Register */}
         <p className="text-center text-xs text-slate-500 dark:text-slate-400">
           Don't have an account yet?{' '}
           <Link

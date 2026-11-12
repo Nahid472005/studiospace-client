@@ -20,7 +20,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('studiospace_theme') as Theme | null;
-    const initialTheme = savedTheme || 'dark'; // Dark theme default for creative studio aesthetics
+    const initialTheme = savedTheme || 'dark';
     setTheme(initialTheme);
     if (initialTheme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -41,7 +41,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // Render children immediately with dark theme fallback to avoid mismatch
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

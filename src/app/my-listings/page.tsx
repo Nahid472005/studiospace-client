@@ -33,7 +33,6 @@ export default function MyListingsPage() {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
-  // Private Route Protection
   useEffect(() => {
     if (!loading && !user) {
       toast.info('Please sign in to view your studio listings.');
@@ -100,8 +99,6 @@ export default function MyListingsPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
-      
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-amber-500">
@@ -124,7 +121,6 @@ export default function MyListingsPage() {
         </Link>
       </div>
 
-      {/* Content: Shadcn UI Table */}
       {fetchLoading ? (
         <div className="space-y-3">
           {[1, 2, 3, 4].map((n) => (
@@ -135,7 +131,6 @@ export default function MyListingsPage() {
         <div className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900 shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm border-collapse">
-              {/* Shadcn thead */}
               <thead className="bg-slate-50/80 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 <tr>
                   <th scope="col" className="h-12 px-5 font-semibold">Studio Space</th>
@@ -148,7 +143,6 @@ export default function MyListingsPage() {
                 </tr>
               </thead>
 
-              {/* Shadcn tbody */}
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
                 {studios.map((studio) => {
                   const displayImg =
@@ -161,7 +155,6 @@ export default function MyListingsPage() {
                       key={studio._id}
                       className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors"
                     >
-                      {/* Studio Title & Thumb */}
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-3.5">
                           <img
@@ -181,14 +174,12 @@ export default function MyListingsPage() {
                         </div>
                       </td>
 
-                      {/* Category Badge */}
                       <td className="px-4 py-4 whitespace-nowrap">
                         <span className="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
                           {studio.category}
                         </span>
                       </td>
 
-                      {/* Rate */}
                       <td className="px-4 py-4 whitespace-nowrap">
                         <span className="font-extrabold text-slate-900 dark:text-white">
                           ${studio.hourlyRate}
@@ -196,17 +187,14 @@ export default function MyListingsPage() {
                         <span className="text-xs text-slate-400"> / hr</span>
                       </td>
 
-                      {/* Security Deposit */}
                       <td className="px-4 py-4 whitespace-nowrap text-slate-600 dark:text-slate-300">
                         ${studio.securityDeposit || 0}
                       </td>
 
-                      {/* Capacity */}
                       <td className="px-4 py-4 whitespace-nowrap text-slate-600 dark:text-slate-300">
                         {studio.maxCapacity || 10} creators
                       </td>
 
-                      {/* Location */}
                       <td className="px-4 py-4 whitespace-nowrap text-slate-500 dark:text-slate-400 max-w-[180px] truncate">
                         <div className="flex items-center gap-1 truncate">
                           <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
@@ -214,7 +202,6 @@ export default function MyListingsPage() {
                         </div>
                       </td>
 
-                      {/* Actions */}
                       <td className="px-5 py-4 whitespace-nowrap text-right">
                         <div className="flex items-center justify-end gap-2">
                           <Link
@@ -251,7 +238,6 @@ export default function MyListingsPage() {
           </div>
         </div>
       ) : (
-        /* Empty State */
         <div className="p-16 text-center rounded-3xl border border-dashed border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
           <Building2 className="w-14 h-14 text-amber-500/80 mx-auto" />
           <h3 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -272,7 +258,6 @@ export default function MyListingsPage() {
         </div>
       )}
 
-      {/* Confirmation Modal Dialog for Delete */}
       <ConfirmationModal
         isOpen={deleteModalOpen}
         title="Delete Studio Listing"

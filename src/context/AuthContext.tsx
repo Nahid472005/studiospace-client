@@ -41,7 +41,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   useEffect(() => {
-    // 1. Instant hydration from localStorage so page reload NEVER drops session
     const storedUser = localStorage.getItem('studiospace_user');
     if (storedUser) {
       try {
@@ -51,7 +50,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     }
 
-    // 2. Validate session with server
     async function checkSession() {
       try {
         const data = await apiRequest('/auth/me');
@@ -60,8 +58,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           localStorage.setItem('studiospace_user', JSON.stringify(data.user));
         }
       } catch (err) {
-        // If server is unreachable or token expired, keep cached user if recent, or clean up if unauthorized
-        // If 401:
         if ((err as Error)?.message?.includes('401')) {
           setUser(null);
           localStorage.removeItem('studiospace_user');
@@ -116,7 +112,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       await apiRequest('/auth/logout', { method: 'POST' });
     } catch (e) {
-      // ignore
     } finally {
       setUser(null);
       localStorage.removeItem('studiospace_user');

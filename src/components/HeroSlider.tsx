@@ -56,7 +56,6 @@ export default function HeroSlider() {
   const [searchActivity, setSearchActivity] = useState('All');
   const [searchLocation, setSearchLocation] = useState('');
 
-  // Giggster-style search submission
   const handleHeroSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const params = new URLSearchParams();
@@ -71,7 +70,6 @@ export default function HeroSlider() {
 
   return (
     <div className="relative w-full overflow-hidden bg-slate-950">
-      {/* Background Carousel */}
       <div className="relative w-full h-[640px] sm:h-[720px] lg:h-[780px]">
         <Swiper
           modules={[Autoplay, Pagination, EffectFade]}
@@ -93,24 +91,19 @@ export default function HeroSlider() {
 
               <div className="relative max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center pt-8 pb-28">
                 <div className="max-w-3xl space-y-5">
-                  
-                  {/* Category Pill */}
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md">
                     <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                     {slide.tag}
                   </div>
 
-                  {/* Headline */}
                   <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12]">
                     {slide.title}
                   </h1>
 
-                  {/* Subtitle */}
                   <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
                     {slide.subtitle}
                   </p>
 
-                  {/* CTA Buttons */}
                   <div className="pt-2 flex flex-wrap items-center gap-4">
                     <Link
                       href={slide.ctaLink}
@@ -135,13 +128,11 @@ export default function HeroSlider() {
         </Swiper>
       </div>
 
-      {/* Giggster-Style Floating Search Widget Overlay */}
       <div className="relative -mt-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 z-20 pb-8">
         <form
           onSubmit={handleHeroSearch}
           className="p-3 sm:p-4 rounded-3xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-950/20 grid grid-cols-1 sm:grid-cols-12 gap-3 items-center"
         >
-          {/* Activity / Category */}
           <div className="sm:col-span-5 px-3 py-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
             <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
               <Layers className="w-3.5 h-3.5 text-amber-500" />
@@ -161,7 +152,6 @@ export default function HeroSlider() {
             </select>
           </div>
 
-          {/* Location / Keyword */}
           <div className="sm:col-span-5 px-3 py-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors border-t sm:border-t-0 sm:border-l border-slate-200 dark:border-slate-800">
             <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
               <MapPin className="w-3.5 h-3.5 text-amber-500" />
@@ -176,7 +166,6 @@ export default function HeroSlider() {
             />
           </div>
 
-          {/* Giggster Search CTA */}
           <div className="sm:col-span-2">
             <button
               type="submit"

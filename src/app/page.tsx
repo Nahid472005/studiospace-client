@@ -29,7 +29,6 @@ export default function HomePage() {
   useEffect(() => {
     async function loadFeatured() {
       try {
-        // Fetch 6 dynamic studios as required: .limit(6)
         const data = await apiRequest('/studios?limit=6&sort=rating');
         if (data.success && data.studios) {
           setFeaturedStudios(data.studios);
@@ -45,14 +44,8 @@ export default function HomePage() {
 
   return (
     <div className="space-y-16 sm:space-y-24 pb-20">
-      
-      {/* 1. Hero Slider (Swiper.js with 3+ slides) */}
       <HeroSlider />
-
-      {/* 2. Browse by Studio Categories */}
       <CategorySection />
-
-      {/* 3. Featured Studios Section (Dynamic from MongoDB, limit 6) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
           <div>
@@ -76,7 +69,6 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* Dynamic Studio Grid (Equal Height Cards) */}
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[1, 2, 3, 4, 5, 6].map((n) => (
@@ -106,7 +98,6 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* 4. Extra Section 1: How Booking Works (4-Step Workflow) */}
       <section id="how-it-works" className="py-20 bg-slate-100/70 dark:bg-slate-900/50 border-y border-slate-200/80 dark:border-slate-800/80 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
@@ -122,8 +113,6 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            
-            {/* Step 1 */}
             <div className="relative p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center font-bold text-lg mb-5">
                 01
@@ -137,7 +126,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Step 2 */}
             <div className="relative p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center font-bold text-lg mb-5">
                 02
@@ -151,7 +139,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Step 3 */}
             <div className="relative p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center font-bold text-lg mb-5">
                 03
@@ -165,7 +152,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Step 4 */}
             <div className="relative p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center font-bold text-lg mb-5">
                 04
@@ -183,7 +169,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Extra Section 2: Host Guarantee & Creator Support */}
       <section id="about-us" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-8 sm:p-12 lg:p-16 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white border border-slate-800 shadow-2xl relative overflow-hidden">
           
@@ -245,7 +230,6 @@ export default function HomePage() {
 
           </div>
 
-          {/* Bottom Callout Banner */}
           <div className="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h4 className="text-base sm:text-lg font-bold text-white">

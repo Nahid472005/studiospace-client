@@ -8,8 +8,6 @@ export default function NotFound() {
   return (
     <div className="min-h-[75vh] flex items-center justify-center px-4 py-16">
       <div className="max-w-lg w-full text-center space-y-6">
-        
-        {/* Creative Studio 404 Illustration Graphic */}
         <div className="relative w-40 h-40 mx-auto flex items-center justify-center">
           <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-2xl animate-pulse" />
           <div className="relative w-32 h-32 rounded-3xl bg-slate-900 border border-slate-800 flex items-center justify-center shadow-2xl">
@@ -18,7 +16,6 @@ export default function NotFound() {
           </div>
         </div>
 
-        {/* 404 Badge & Error Message */}
         <div className="space-y-2">
           <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/15 text-amber-500 border border-amber-500/30">
             Error 404 • Scene Not Found
@@ -31,7 +28,6 @@ export default function NotFound() {
           </p>
         </div>
 
-        {/* Action Button: Return to Home */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/"

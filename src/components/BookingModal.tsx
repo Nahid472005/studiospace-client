@@ -19,7 +19,6 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
   const router = useRouter();
   const { user } = useAuth();
 
-  // Tomorrow as default date formatted as YYYY-MM-DD
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
 
   const [date, setDate] = useState(tomorrow);
@@ -31,7 +30,6 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
 
   if (!isOpen) return null;
 
-  // Calculate duration in hours
   const calculateHours = () => {
     if (!startTime || !endTime) return 0;
     const [startH, startM] = startTime.split(':').map(Number);
@@ -101,7 +99,6 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
         className="w-full max-w-xl bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 sm:p-8 space-y-6 animate-in zoom-in-95 duration-150 max-h-[92vh] overflow-y-auto"
         role="dialog"
       >
-        {/* Header */}
         <div className="flex items-start justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-amber-500">
@@ -122,7 +119,6 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
           </button>
         </div>
 
-        {/* Error Callout (Challenge 2: Collision detection notice) */}
         {errorMessage && (
           <div className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-start gap-3 text-rose-700 dark:text-rose-300 text-xs sm:text-sm">
             <AlertCircle className="w-5 h-5 shrink-0 text-rose-500 mt-0.5" />
@@ -133,10 +129,7 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
           </div>
         )}
 
-        {/* Booking Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
-          
-          {/* Date Picker */}
           <div>
             <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
               Shoot / Session Date
@@ -154,7 +147,6 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
             </div>
           </div>
 
-          {/* Time Range */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
@@ -189,7 +181,6 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
             </div>
           </div>
 
-          {/* Special Production Notes */}
           <div>
             <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
               Production Equipment & Crew Notes (Optional)
@@ -203,7 +194,6 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
             />
           </div>
 
-          {/* Pricing Breakdown Card */}
           <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 space-y-2 text-xs sm:text-sm">
             <div className="flex justify-between text-slate-700 dark:text-slate-300">
               <span>Duration</span>
@@ -225,7 +215,6 @@ export default function BookingModal({ isOpen, onClose, studio }: BookingModalPr
             </div>
           </div>
 
-          {/* Actions */}
           <div className="flex items-center justify-end gap-3 pt-2">
             <button
               type="button"

@@ -7,7 +7,6 @@ export async function apiRequest(endpoint: string, options: RequestInit = {}) {
     'Content-Type': 'application/json',
   };
 
-  // Get token from localStorage if available as fallback header
   if (typeof window !== 'undefined') {
     const token = localStorage.getItem('studiospace_token');
     if (token) {
@@ -21,7 +20,7 @@ export async function apiRequest(endpoint: string, options: RequestInit = {}) {
       ...defaultHeaders,
       ...options.headers,
     },
-    credentials: 'include', // Essential for sending and receiving HTTPOnly cookies
+    credentials: 'include',
   });
 
   const data = await response.json().catch(() => ({}));

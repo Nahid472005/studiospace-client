@@ -33,22 +33,19 @@ export default function InvoiceGenerator({ booking }: { booking: BookingData }) 
         format: 'a4',
       });
 
-      // Background accent banner
-      doc.setFillColor(15, 23, 42); // slate-950
+      doc.setFillColor(15, 23, 42);
       doc.rect(0, 0, 210, 40, 'F');
 
-      // Title & Branding
-      doc.setTextColor(245, 158, 11); // Amber
+      doc.setTextColor(245, 158, 11);
       doc.setFontSize(22);
       doc.setFont('helvetica', 'bold');
       doc.text('StudioSpace', 14, 22);
 
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
-      doc.setTextColor(203, 213, 225); // Slate 300
+      doc.setTextColor(203, 213, 225);
       doc.text('Peer-to-Peer Creative Production Marketplace', 14, 29);
 
-      // Receipt Badge on Right
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(14);
       doc.setFont('helvetica', 'bold');
@@ -59,10 +56,8 @@ export default function InvoiceGenerator({ booking }: { booking: BookingData }) 
       doc.setTextColor(148, 163, 184);
       doc.text(`Booking Ref: #${booking._id.slice(-8).toUpperCase()}`, 130, 29);
 
-      // Body Section
       let y = 55;
 
-      // Status Banner
       doc.setFillColor(241, 245, 249);
       doc.roundedRect(14, y, 182, 14, 2, 2, 'F');
 
@@ -73,7 +68,6 @@ export default function InvoiceGenerator({ booking }: { booking: BookingData }) 
 
       y += 24;
 
-      // Guest & Session Details Grid
       doc.setFontSize(12);
       doc.setFont('helvetica', 'bold');
       doc.setTextColor(15, 23, 42);
@@ -111,7 +105,6 @@ export default function InvoiceGenerator({ booking }: { booking: BookingData }) 
 
       y += 16;
 
-      // Financial Breakdown Table
       doc.setFillColor(248, 250, 252);
       doc.rect(14, y, 182, 8, 'F');
       doc.setFont('helvetica', 'bold');
@@ -144,10 +137,9 @@ export default function InvoiceGenerator({ booking }: { booking: BookingData }) 
       doc.setFont('helvetica', 'bold');
       doc.setTextColor(15, 23, 42);
       doc.text('Total Investment:', 120, y);
-      doc.setTextColor(217, 119, 6); // amber-600
+      doc.setTextColor(217, 119, 6);
       doc.text(`$${booking.totalPrice} USD`, 160, y);
 
-      // Footer Terms
       y = 260;
       doc.setDrawColor(226, 232, 240);
       doc.line(14, y, 196, y);

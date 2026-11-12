@@ -31,7 +31,6 @@ export default function Navbar() {
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -58,13 +57,10 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-slate-900/85 border-b border-slate-200/80 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        
-        {/* Logo: Aperture spotlight branding */}
         <Link href="/">
           <Logo size="md" />
         </Link>
 
-        {/* Desktop Nav Links */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">
           {navLinks.map((link) => {
             const active = isActive(link.href);
@@ -84,9 +80,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right Section: Theme Toggle + Auth State */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Theme Toggler (Challenge 3) */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
@@ -99,7 +93,6 @@ export default function Navbar() {
             )}
           </button>
 
-          {/* Unauthenticated vs Authenticated */}
           {!user ? (
             <div className="flex items-center gap-2">
               <Link
@@ -132,7 +125,6 @@ export default function Navbar() {
                 <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" />
               </button>
 
-              {/* User Dropdown Menu */}
               {userDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-950/15 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                   <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
@@ -194,7 +186,6 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Mobile Hamburger Button */}
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
@@ -212,7 +203,6 @@ export default function Navbar() {
 
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-6 space-y-3">
           {navLinks.map((link) => (

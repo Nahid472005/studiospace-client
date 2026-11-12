@@ -56,8 +56,6 @@ export default function CategorySection() {
   return (
     <section className="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/60 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-amber-500">
@@ -79,7 +77,6 @@ export default function CategorySection() {
           </Link>
         </div>
 
-        {/* 5 Category Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {categories.map((cat) => {
             const Icon = cat.icon;

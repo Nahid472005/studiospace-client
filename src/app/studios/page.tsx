@@ -88,8 +88,6 @@ function StudiosContent() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
-      
-      {/* Page Header */}
       <div className="space-y-2">
         <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-500">
           <Sparkles className="w-3.5 h-3.5" />
@@ -103,11 +101,8 @@ function StudiosContent() {
         </p>
       </div>
 
-      {/* Search & Filter Toolbar */}
       <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-        
         <div className="flex flex-col md:flex-row gap-3">
-          {/* Keyword Search Input */}
           <div className="relative flex-1">
             <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
             <input
@@ -119,7 +114,6 @@ function StudiosContent() {
             />
           </div>
 
-          {/* Sort By Dropdown */}
           <div className="flex items-center gap-2">
             <div className="relative shrink-0">
               <select
@@ -147,7 +141,6 @@ function StudiosContent() {
           </div>
         </div>
 
-        {/* Category Pills */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 scrollbar-none">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat;
@@ -169,7 +162,6 @@ function StudiosContent() {
 
       </div>
 
-      {/* Grid of Results (Equal Height Cards) */}
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[1, 2, 3, 4, 5, 6].map((n) => (
@@ -188,7 +180,6 @@ function StudiosContent() {
           </div>
         </div>
       ) : (
-        /* Empty State */
         <div className="p-16 text-center rounded-3xl border border-dashed border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
           <Building2 className="w-14 h-14 text-amber-500/80 mx-auto" />
           <h3 className="text-xl font-bold text-slate-900 dark:text-white">

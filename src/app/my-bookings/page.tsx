@@ -53,7 +53,6 @@ export default function MyBookingsPage() {
   const [selectedBookingToCancel, setSelectedBookingToCancel] = useState<Booking | null>(null);
   const [cancelling, setCancelling] = useState(false);
 
-  // Private Route Protection
   useEffect(() => {
     if (!loading && !user) {
       toast.info('Please sign in to view your studio reservations.');
@@ -98,7 +97,6 @@ export default function MyBookingsPage() {
 
       if (data.success) {
         toast.success('Your workspace booking has been cancelled.');
-        // Update local state status
         setBookings(
           bookings.map((b) =>
             b._id === selectedBookingToCancel._id ? { ...b, status: 'Cancelled' } : b
@@ -114,7 +112,6 @@ export default function MyBookingsPage() {
     }
   };
 
-  // Status Badge Helper
   const getStatusBadge = (status: Booking['status']) => {
     switch (status) {
       case 'Confirmed':
@@ -157,8 +154,6 @@ export default function MyBookingsPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
-      
-      {/* Page Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-amber-500">
@@ -181,7 +176,6 @@ export default function MyBookingsPage() {
         </Link>
       </div>
 
-      {/* Bookings List */}
       {fetchLoading ? (
         <div className="space-y-4">
           {[1, 2, 3].map((n) => (
@@ -202,7 +196,6 @@ export default function MyBookingsPage() {
                 key={booking._id}
                 className="p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-6 hover:border-amber-500/30 transition-all"
               >
-                {/* Left: Studio details & Date */}
                 <div className="flex items-start sm:items-center gap-4">
                   <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-950 shrink-0">
                     <img
@@ -243,10 +236,7 @@ export default function MyBookingsPage() {
                   </div>
                 </div>
 
-                {/* Right: Financial & Actions */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between lg:justify-end gap-4 pt-3 lg:pt-0 border-t lg:border-t-0 border-slate-100 dark:border-slate-800">
-                  
-                  {/* Price */}
                   <div className="text-left sm:text-right">
                     <span className="text-xs text-slate-400 block">Total Investment</span>
                     <span className="text-lg font-extrabold text-slate-900 dark:text-white">
@@ -257,9 +247,7 @@ export default function MyBookingsPage() {
                     </span>
                   </div>
 
-                  {/* Actions: Invoice PDF & Cancel */}
                   <div className="flex items-center gap-2">
-                    {/* PDF Generator Button (Optional Bonus) */}
                     <InvoiceGenerator booking={booking} />
 
                     {canCancel && (
@@ -272,7 +260,6 @@ export default function MyBookingsPage() {
                       </button>
                     )}
                   </div>
-
                 </div>
 
               </div>
@@ -280,7 +267,6 @@ export default function MyBookingsPage() {
           })}
         </div>
       ) : (
-        /* Empty State */
         <div className="p-16 text-center rounded-3xl border border-dashed border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
           <CalendarCheck className="w-14 h-14 text-amber-500/80 mx-auto" />
           <h3 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -301,7 +287,6 @@ export default function MyBookingsPage() {
         </div>
       )}
 
-      {/* Confirmation Modal for Booking Cancellation */}
       <ConfirmationModal
         isOpen={cancelModalOpen}
         title="Cancel Studio Booking"

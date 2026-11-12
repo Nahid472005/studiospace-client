@@ -39,7 +39,6 @@ export default function DashboardPage() {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [dataLoading, setDataLoading] = useState(true);
 
-  // Private Route Protection
   useEffect(() => {
     if (!loading && !user) {
       router.push('/login?redirect=/dashboard');
@@ -85,8 +84,6 @@ export default function DashboardPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10">
-      
-      {/* Header Profile Greeting */}
       <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <img
@@ -117,10 +114,7 @@ export default function DashboardPage() {
         </Link>
       </div>
 
-      {/* Metric Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        
-        {/* Metric 1 */}
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
@@ -138,7 +132,6 @@ export default function DashboardPage() {
           </Link>
         </div>
 
-        {/* Metric 2 */}
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
@@ -156,7 +149,6 @@ export default function DashboardPage() {
           </Link>
         </div>
 
-        {/* Metric 3 */}
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
@@ -174,7 +166,6 @@ export default function DashboardPage() {
           </Link>
         </div>
 
-        {/* Metric 4 */}
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
@@ -191,13 +182,9 @@ export default function DashboardPage() {
             Host Liability Protection
           </span>
         </div>
-
       </div>
 
-      {/* Two Column Layout: Recent Listings & Recent Bookings */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        
-        {/* Left: Your Studio Listings */}
         <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
             <div>
@@ -265,7 +252,6 @@ export default function DashboardPage() {
           )}
         </div>
 
-        {/* Right: Recent Bookings */}
         <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
             <div>

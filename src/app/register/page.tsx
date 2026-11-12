@@ -28,7 +28,6 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Password validation criteria
   const hasUpperCase = /[A-Z]/.test(password);
   const hasLowerCase = /[a-z]/.test(password);
   const hasMinLength = password.length >= 6;
@@ -44,7 +43,6 @@ export default function RegisterPage() {
       return;
     }
 
-    // Strict Password Validation check
     if (!isPasswordValid) {
       setErrorMessage('Password must satisfy all security requirements (Uppercase, Lowercase, 6+ characters).');
       toast.error('Please fix the password validation criteria.');
@@ -85,8 +83,6 @@ export default function RegisterPage() {
   return (
     <div className="min-h-[85vh] flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md space-y-7 bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
-        
-        {/* Brand & Heading */}
         <div className="text-center space-y-2">
           <div className="w-12 h-12 rounded-2xl bg-amber-500 mx-auto flex items-center justify-center shadow-lg shadow-amber-500/25">
             <Aperture className="w-6 h-6 text-slate-950" />
@@ -99,7 +95,6 @@ export default function RegisterPage() {
           </p>
         </div>
 
-        {/* Error Callout */}
         {errorMessage && (
           <div className="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-center gap-2.5 text-rose-600 dark:text-rose-400 text-xs font-medium">
             <AlertCircle className="w-4 h-4 shrink-0" />
@@ -107,10 +102,7 @@ export default function RegisterPage() {
           </div>
         )}
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          
-          {/* Full Name */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
               Full Name *
@@ -128,7 +120,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
               Email Address *
@@ -146,7 +137,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Photo URL */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
               Photo URL (Optional)
@@ -163,7 +153,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Password */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
               Password *
@@ -180,7 +169,6 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Password Validation Criteria Checklist */}
             <div className="mt-2.5 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 space-y-1.5">
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
                 Password Criteria
@@ -232,7 +220,6 @@ export default function RegisterPage() {
 
         </form>
 
-        {/* Divider */}
         <div className="relative flex items-center justify-center">
           <div className="border-t border-slate-200 dark:border-slate-800 w-full" />
           <span className="bg-white dark:bg-slate-900 px-3 text-xs text-slate-400 uppercase tracking-wider font-semibold">
@@ -240,7 +227,6 @@ export default function RegisterPage() {
           </span>
         </div>
 
-        {/* Google Social Button */}
         <button
           type="button"
           onClick={handleGoogleRegister}
@@ -268,7 +254,6 @@ export default function RegisterPage() {
           <span>Continue with Google</span>
         </button>
 
-        {/* Link to Login */}
         <p className="text-center text-xs text-slate-500 dark:text-slate-400">
           Already registered an account?{' '}
           <Link

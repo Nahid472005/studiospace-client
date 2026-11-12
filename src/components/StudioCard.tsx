@@ -54,8 +54,6 @@ export default function StudioCard({ studio }: StudioCardProps) {
 
   return (
     <div className="group flex flex-col h-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-amber-500/40 dark:hover:border-amber-500/40 transition-all duration-300 overflow-hidden">
-      
-      {/* Top Image Container */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
         <img
           src={displayImage}
@@ -65,14 +63,12 @@ export default function StudioCard({ studio }: StudioCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-80" />
 
-        {/* Category Badge */}
         <div className="absolute top-3 left-3">
           <span className="px-3 py-1 rounded-full text-xs font-semibold bg-slate-950/80 text-amber-400 border border-amber-500/30 backdrop-blur-md shadow-sm">
             {studio.category}
           </span>
         </div>
 
-        {/* Wishlist Heart Button (Optional Requirement) */}
         <button
           onClick={handleWishlistClick}
           disabled={toggling}
@@ -86,14 +82,12 @@ export default function StudioCard({ studio }: StudioCardProps) {
           />
         </button>
 
-        {/* Rating Badge on bottom of image */}
         <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/60 text-white text-xs font-semibold backdrop-blur-md">
           <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
           <span>{studio.rating ? studio.rating.toFixed(1) : '4.9'}</span>
           <span className="text-slate-400 text-[10px]">({studio.reviewsCount || 12})</span>
         </div>
 
-        {/* Capacity */}
         {studio.maxCapacity && (
           <div className="absolute bottom-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/60 text-slate-300 text-xs backdrop-blur-md">
             <Users className="w-3.5 h-3.5" />
@@ -102,22 +96,17 @@ export default function StudioCard({ studio }: StudioCardProps) {
         )}
       </div>
 
-      {/* Card Body with Flex Column so all cards maintain identical height */}
       <div className="p-5 flex flex-col flex-1 justify-between gap-4">
-        
         <div className="space-y-2">
-          {/* Location */}
           <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 truncate">
             <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
             <span className="truncate">{studio.location}</span>
           </div>
 
-          {/* Title */}
           <h3 className="text-base font-bold text-slate-900 dark:text-white line-clamp-1 group-hover:text-amber-500 transition-colors">
             {studio.title}
           </h3>
 
-          {/* Overview excerpt */}
           {studio.overview && (
             <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 leading-relaxed">
               {studio.overview}
@@ -125,7 +114,6 @@ export default function StudioCard({ studio }: StudioCardProps) {
           )}
         </div>
 
-        {/* Card Footer: Hourly Price + View Details Button */}
         <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between gap-3">
           <div>
             <div className="flex items-baseline gap-1">
